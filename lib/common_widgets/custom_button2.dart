@@ -19,9 +19,9 @@ class CustomButtontwo extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10.0.w, vertical: 15.0.h),
+        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 15.h),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8.0.r),
+          borderRadius: BorderRadius.circular(8.r),
           border: Border.all(color: containerBorderColor),
         ),
         height: 52.0.h,

@@ -1,4 +1,5 @@
-import 'package:education/features/home_screen/presentation/home_screen.dart';
+import 'package:education/features/class_setting/presentation/class_setting_screen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: HomeScreen(),
+          home: ClassSettingScreen(),
         );
       },
     );
