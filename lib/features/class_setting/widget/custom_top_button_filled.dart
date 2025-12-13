@@ -1,4 +1,3 @@
-import 'package:education/assets_helper/assets_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -35,7 +34,7 @@ class CustomTopButtonFilled extends StatelessWidget {
             SizedBox(height: 20.h, width: 20.w, child: Placeholder()),
             SizedBox(width: 5.w),
 
-            Text(title, style: TextFontStyle.txtfntstyleFitree14w400),
+            Text(title),
           ],
         ),
       ),

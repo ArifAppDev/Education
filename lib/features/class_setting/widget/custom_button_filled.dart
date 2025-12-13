@@ -1,12 +1,11 @@
-import 'package:education/assets_helper/assets_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomTopButtonFilled extends StatelessWidget {
+class CustomButtonFilled extends StatelessWidget {
   final Color fillColor;
   final String title;
   final Function() onTap;
-  const CustomTopButtonFilled({
+  const CustomButtonFilled({
     super.key,
     required this.fillColor,
     required this.title,
@@ -19,10 +18,10 @@ class CustomTopButtonFilled extends StatelessWidget {
       onTap: onTap,
       child: Container(
         padding: EdgeInsets.only(
-          top: 11.h,
-          bottom: 11.h,
-          right: 12.w,
-          left: 12.w,
+          top: 13.h,
+          bottom: 13.h,
+          right: 16.w,
+          left: 16.w,
         ),
 
         decoration: BoxDecoration(
@@ -35,7 +34,7 @@ class CustomTopButtonFilled extends StatelessWidget {
             SizedBox(height: 20.h, width: 20.w, child: Placeholder()),
             SizedBox(width: 5.w),
 
-            Text(title, style: TextFontStyle.txtfntstyleFitree14w400),
+            Text(title),
           ],
         ),
       ),

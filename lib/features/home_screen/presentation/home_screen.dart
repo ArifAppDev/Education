@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
 
-            Divider(color: AppColor.cF2F2F2, thickness: 1.w),
+            UIHelper.customDivider(),
 
             Expanded(
               child: Padding(

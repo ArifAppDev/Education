@@ -43,10 +43,7 @@ class ClassSettingScreen extends StatelessWidget {
                 ),
                 UIHelper.verticalspace16,
 
-                SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  child: Divider(color: AppColor.cF2F2F2, thickness: 1.w),
-                ),
+                UIHelper.customDivider(),
                 UIHelper.verticalspace20,
 
                 Padding(
@@ -54,22 +51,22 @@ class ClassSettingScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           CustomTopButtonFilled(
                             fillColor: AppColor.cF0F0F0,
                             title: 'Class Overview',
                             onTap: () {},
                           ),
-                          UIHelper.horizontalspace20,
+                          UIHelper.horizontalspace12,
 
-                          CustomTopButtonUndilled(
+                          CustomTopButtonUnFilled(
                             onTap: () {
                               NavigationService.navigateTo(
                                 Routes.subjectandteacher,
                               );
                             },
-                            title: 'Subjects & Teachers',
-                            fillColor: AppColor.cF3F5F7,
+                            title: 'Invites & Requests',
                           ),
                         ],
                       ),

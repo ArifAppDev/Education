@@ -1,17 +1,17 @@
 import 'package:education/assets_helper/app_colors.dart';
+import 'package:education/assets_helper/assets_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomTopButtonUndilled extends StatelessWidget {
+class CustomTopButtonUnFilled extends StatelessWidget {
   final Function() onTap;
-  final Color fillColor;
+
   final String title;
 
-  const CustomTopButtonUndilled({
+  const CustomTopButtonUnFilled({
     super.key,
     required this.onTap,
     required this.title,
-    required this.fillColor,
   });
 
   @override
@@ -27,7 +27,6 @@ class CustomTopButtonUndilled extends StatelessWidget {
         ),
 
         decoration: BoxDecoration(
-          color: fillColor,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(color: AppColor.c2E3227, width: 0.3.w),
         ),
@@ -37,7 +36,12 @@ class CustomTopButtonUndilled extends StatelessWidget {
               SizedBox(height: 20.h, width: 20.w, child: Placeholder()),
               SizedBox(width: 5.w),
 
-              Text(title),
+              Text(
+                title,
+                style: TextFontStyle.txtfntstyleFitree14w400.copyWith(
+                  fontSize: 12,
+                ),
+              ),
             ],
           ),
         ),
