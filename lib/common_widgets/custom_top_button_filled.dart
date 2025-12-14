@@ -35,7 +35,12 @@ class CustomTopButtonFilled extends StatelessWidget {
             SizedBox(height: 20.h, width: 20.w, child: Placeholder()),
             SizedBox(width: 5.w),
 
-            Text(title, style: TextFontStyle.txtfntstyleFitree14w400),
+            Text(
+              title,
+              style: TextFontStyle.txtfntstyleFitree14w400.copyWith(
+                fontSize: 12,
+              ),
+            ),
           ],
         ),
       ),

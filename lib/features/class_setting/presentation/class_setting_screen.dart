@@ -1,14 +1,14 @@
 import 'package:education/assets_helper/app_colors.dart';
 import 'package:education/assets_helper/assets_fonts.dart';
-import 'package:education/common_widgets/custom_button_filled.dart';
+
 import 'package:education/common_widgets/custom_top_button_filled.dart';
 import 'package:education/common_widgets/custom_top_button_unfilled.dart';
 
 import 'package:education/constants/app_constants.dart';
 
 import 'package:education/features/class_setting/widget/custom_app_bar_backButton.dart';
-
-import 'package:education/features/class_setting/widget/custom_classcode_textformfield.dart';
+import 'package:education/features/class_setting/widget/custom_class_secretcode_card.dart';
+import 'package:education/features/class_setting/widget/custom_class_summary_card.dart';
 
 import 'package:education/gen/colors.gen.dart';
 import 'package:education/helpers/all_routes.dart';
@@ -72,252 +72,13 @@ class ClassSettingScreen extends StatelessWidget {
                       ),
                       UIHelper.verticalspace20,
 
-                      Container(
-                        padding: EdgeInsets.all(16.w),
+                      //============== custom class summary card =============
+                      CustomClassSummaryCard(),
 
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8.r),
-                          color: ColorName.cFFFFFF,
-                          border: Border.all(
-                            color: AppColor.c2E3227,
-                            width: 0.4.w,
-                          ),
-                        ),
-
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-
-                          children: [
-                            Text(
-                              AppConstants.classsummary,
-                              style: TextFontStyle.textFntstyleFitree16w600
-                                  .copyWith(
-                                    fontWeight: FontWeight.w500,
-                                    color: AppColor.c000000,
-                                    fontSize: 18.sp,
-                                  ),
-                            ),
-                            UIHelper.verticalspace16,
-                            Row(
-                              children: [
-                                Container(
-                                  padding: EdgeInsets.all(12.w),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(8.r),
-                                    color: ColorName.cFFFFFF,
-                                    border: Border.all(
-                                      color: AppColor.c2E3227,
-                                      width: 0.4.w,
-                                    ),
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        height: 38.h,
-                                        width: 38.w,
-
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(
-                                            8.r,
-                                          ),
-                                          color: AppColor.cE9D4FF,
-                                        ),
-
-                                        child: Center(
-                                          child: SizedBox(
-                                            height: 24.h,
-                                            width: 24.w,
-                                            child: Placeholder(),
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(width: 8.w),
-
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "03",
-                                            style: TextFontStyle
-                                                .txtfntstyleFitree12w400
-                                                .copyWith(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontSize: 16,
-                                                  color: AppColor.c9810FA,
-                                                ),
-                                          ),
-                                          Text(
-                                            "Total Subject",
-                                            style: TextFontStyle
-                                                .txtfntstyleFitree12w400,
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                UIHelper.horizontalspace16,
-
-                                Container(
-                                  padding: EdgeInsets.all(12.w),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(8.r),
-                                    color: ColorName.cFFFFFF,
-                                    border: Border.all(
-                                      color: AppColor.c2E3227,
-                                      width: 0.4.w,
-                                    ),
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        height: 38.h,
-                                        width: 38.w,
-
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(
-                                            8.r,
-                                          ),
-                                          color: AppColor.cFFEDD5CC,
-                                        ),
-
-                                        child: Center(
-                                          child: SizedBox(
-                                            height: 24.h,
-                                            width: 24.w,
-                                            child: Placeholder(),
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(width: 8.w),
-
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "03",
-                                            style: TextFontStyle
-                                                .textFntstyleFitree16w600
-                                                .copyWith(
-                                                  color: AppColor.cEA580C,
-                                                ),
-                                          ),
-                                          Text(
-                                            "Total Subject",
-                                            style: TextFontStyle
-                                                .txtfntstyleFitree12w400,
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                            UIHelper.verticalspace24,
-
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  AppConstants.classname,
-                                  style: TextFontStyle.txtfntstyleFitree12w400
-                                      .copyWith(fontSize: 16),
-                                ),
-                                Text(
-                                  "Mathematics 101",
-                                  style: TextFontStyle.textFntstyleFitree16w600
-                                      .copyWith(),
-                                ),
-                              ],
-                            ),
-
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  AppConstants.gradeLevel,
-                                  style: TextFontStyle.txtfntstyleFitree12w400
-                                      .copyWith(fontSize: 16),
-                                ),
-                                Text(
-                                  "Grade 8",
-                                  style: TextFontStyle.textFntstyleFitree16w600
-                                      .copyWith(),
-                                ),
-                              ],
-                            ),
-
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  AppConstants.classCreateDate,
-                                  style: TextFontStyle.txtfntstyleFitree12w400
-                                      .copyWith(fontSize: 16),
-                                ),
-                                Text(
-                                  "12/03/2025",
-                                  style: TextFontStyle.textFntstyleFitree16w600
-                                      .copyWith(),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
                       UIHelper.verticalspace24,
 
-                      Container(
-                        padding: EdgeInsets.all(16.w),
-
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8.r),
-                          color: ColorName.cFFFFFF,
-                          border: Border.all(
-                            color: AppColor.c2E3227,
-                            width: 0.4.w,
-                          ),
-                        ),
-
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-
-                          children: [
-                            Text(
-                              AppConstants.classSecretCode,
-                              style: TextFontStyle.textFntstyleFitree16w600,
-                            ),
-                            SizedBox(height: 2.h),
-                            Text(
-                              "Use this code to invite subject teachers to join your class",
-                              style: TextFontStyle.txtfntstyleFitree14w400,
-                            ),
-                            UIHelper.verticalspace16,
-                            Row(
-                              children: [
-                                //================= custom text form field ===========
-                                Expanded(child: CustomClasscodeTextformfield()),
-                                SizedBox(width: 12.w),
-                                CustomButtonFilled(
-                                  fillColor: AppColor.cF0F0F0,
-                                  title: 'Class Overview',
-                                  onTap: () {},
-                                ),
-                              ],
-                            ),
-                            UIHelper.verticalspace16,
-
-                            CustomButtonFilled(
-                              fillColor: AppColor.cF0F0F0,
-                              title: 'Generate New Code',
-                              onTap: () {},
-                            ),
-                          ],
-                        ),
-                      ),
+                      //============== custom class secret code  ==============
+                      CustomClassSecretcodeCard(),
                       UIHelper.verticalspace24,
 
                       Container(

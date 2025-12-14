@@ -17,15 +17,10 @@ class CustomViewclassButton extends StatelessWidget {
       onTap: onTap,
 
       child: Container(
-        padding: EdgeInsets.only(
-          top: 15.h,
-          bottom: 15.h,
-          right: 10.w,
-          left: 10.w,
-        ),
+        padding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 10.w),
         decoration: BoxDecoration(
           color: AppColor.bgColor,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.r),
           border: Border.all(color: AppColor.c2E3227, width: 0.4.w),
         ),
         child: Row(

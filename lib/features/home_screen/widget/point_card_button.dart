@@ -23,9 +23,9 @@ class PointCardButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16.0.w),
+      padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(12.r),
         color: containerColor,
         border: Border.all(color: containerBorderColor, width: 1.0.w),
       ),
