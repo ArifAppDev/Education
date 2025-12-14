@@ -6,7 +6,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomButton extends StatelessWidget {
   final String title;
   final Function() onTap;
-  const CustomButton({super.key, required this.title, required this.onTap});
+  final Color containerColor;
+  const CustomButton({
+    super.key,
+    required this.title,
+    required this.onTap,
+    required this.containerColor,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +21,7 @@ class CustomButton extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 15.h),
         decoration: BoxDecoration(
-          color: AppColor.primaryColor,
+          color: containerColor,
           borderRadius: BorderRadius.circular(8.r),
         ),
 

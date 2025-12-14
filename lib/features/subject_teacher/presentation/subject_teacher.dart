@@ -2,6 +2,7 @@ import 'package:education/assets_helper/app_colors.dart';
 import 'package:education/assets_helper/assets_fonts.dart';
 import 'package:education/common_widgets/custom_button.dart';
 import 'package:education/common_widgets/custom_button_filled.dart';
+import 'package:education/common_widgets/custom_dialog_box.dart';
 import 'package:education/common_widgets/custom_top_button_unfilled.dart';
 import 'package:education/constants/app_constants.dart';
 import 'package:education/features/class_setting/widget/custom_app_bar_backButton.dart';
@@ -65,7 +66,18 @@ class SubjectTeacher extends StatelessWidget {
 
                     UIHelper.verticalspace24,
 
-                    CustomButton(title: 'Add New Subject', onTap: () {}),
+                    CustomButton(
+                      containerColor: AppColor.primaryColor,
+                      title: 'Add New Subject',
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) {
+                            return CustomDialogBox();
+                          },
+                        );
+                      },
+                    ),
                     UIHelper.verticalspace24,
 
                     Container(

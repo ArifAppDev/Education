@@ -1,26 +1,14 @@
 import 'package:education/assets_helper/app_colors.dart';
 import 'package:education/assets_helper/assets_fonts.dart';
-import 'package:education/constants/app_constants.dart';
-import 'package:education/gen/assets.gen.dart';
+
 import 'package:education/gen/colors.gen.dart';
-import 'package:education/helpers/all_routes.dart';
-import 'package:education/helpers/navigation_service.dart';
 import 'package:education/helpers/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomSubjectAssignedTcher extends StatefulWidget {
-  const CustomSubjectAssignedTcher({super.key});
+class CustomLessonOverviewCard extends StatelessWidget {
+  const CustomLessonOverviewCard({super.key});
 
-  @override
-  State<CustomSubjectAssignedTcher> createState() =>
-      _CustomSubjectAssignedTcherState();
-}
-
-String dropDownValue = 'View Details';
-
-class _CustomSubjectAssignedTcherState
-    extends State<CustomSubjectAssignedTcher> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -37,11 +25,11 @@ class _CustomSubjectAssignedTcherState
 
         children: [
           Text(
-            AppConstants.subjectsandAssignedTeachers,
+            "Lesson Overview",
             style: TextFontStyle.txtfontstyleFigtree16w600c2E3227,
           ),
           Text(
-            AppConstants.subjectsandAssignedTeachers,
+            "Track lesson performance, points, and class progress in one place.",
             style: TextFontStyle.txtfntstyleFitree14w400c2E3227,
           ),
           SizedBox(height: 27.h),
@@ -50,21 +38,58 @@ class _CustomSubjectAssignedTcherState
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                AppConstants.subject,
+                "Lesson Date",
                 style: TextFontStyle.txtfntstyleFitree14w400c2E3227.copyWith(
                   fontWeight: FontWeight.w500,
                 ),
               ),
               Text(
-                AppConstants.assigned,
+                "Total Points",
                 style: TextFontStyle.txtfntstyleFitree14w400c2E3227.copyWith(
                   fontWeight: FontWeight.w500,
                 ),
               ),
               Text(
-                AppConstants.actions,
+                "Notes",
                 style: TextFontStyle.txtfntstyleFitree14w400c2E3227.copyWith(
                   fontWeight: FontWeight.w500,
+                ),
+              ),
+            ],
+          ),
+          UIHelper.verticalspace16,
+
+          UIHelper.customDivider(),
+          UIHelper.verticalspace16,
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(right: 36.w),
+                child: Text(
+                  "02 Oct 2025",
+                  style: TextFontStyle.txtfntstyleFitree14w400c2E3227.copyWith(
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsGeometry.only(right: 30.w),
+                child: Text(
+                  "80/120",
+                  style: TextFontStyle.txtfntstyleFitree14w400c2E3227.copyWith(
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+
+              GestureDetector(
+                child: Text(
+                  "See note,",
+                  style: TextFontStyle.txtfntstyleFitree14w400c2E3227.copyWith(
+                    decoration: TextDecoration.underline,
+                  ),
                 ),
               ),
             ],
@@ -81,7 +106,7 @@ class _CustomSubjectAssignedTcherState
               Padding(
                 padding: EdgeInsets.only(right: 36.w),
                 child: Text(
-                  "Mathematics",
+                  "10 Oct 2025",
                   style: TextFontStyle.txtfntstyleFitree14w400c2E3227.copyWith(
                     fontWeight: FontWeight.w500,
                   ),
@@ -90,78 +115,19 @@ class _CustomSubjectAssignedTcherState
               Padding(
                 padding: EdgeInsetsGeometry.only(right: 30.w),
                 child: Text(
-                  "Mr. David Cohen",
+                  "100/120",
                   style: TextFontStyle.txtfntstyleFitree14w400c2E3227.copyWith(
                     fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
               GestureDetector(
-                onTap: () async {
-                  // get the position of the tapped widget to anchor the menu
-                  final RenderBox button =
-                      context.findRenderObject() as RenderBox;
-                  final RenderBox overlay =
-                      Overlay.of(context).context.findRenderObject()
-                          as RenderBox;
-
-                  final RelativeRect position = RelativeRect.fromRect(
-                    Rect.fromPoints(
-                      button.localToGlobal(Offset.zero, ancestor: overlay),
-                      button.localToGlobal(
-                        button.size.bottomRight(Offset.zero),
-                        ancestor: overlay,
-                      ),
-                    ),
-                    Offset.zero & overlay.size,
-                  );
-
-                  // showMenu supports a color parameter to change background color
-                  final String? result = await showMenu<String>(
-                    context: context,
-                    position: position,
-                    color: AppColor.cFFFFFFF, // change to any color you want
-                    items: [
-                      PopupMenuItem<String>(
-                        value: 'View Details',
-                        child: Container(
-                          padding: EdgeInsets.symmetric(vertical: 6.h),
-                          child: Text(
-                            'View Details',
-                            style: TextStyle(color: AppColor.c595C53),
-                          ),
-                        ),
-                      ),
-
-                      // Divider in the middle of the menu
-                      const PopupMenuDivider(height: 1),
-
-                      PopupMenuItem<String>(
-                        value: 'Edit Subject',
-                        child: Container(
-                          padding: EdgeInsets.symmetric(vertical: 6.h),
-                          child: Text(
-                            'Edit Subject',
-                            style: TextStyle(color: AppColor.c595C53),
-                          ),
-                        ),
-                      ),
-                    ],
-                  );
-
-                  if (result != null) {
-                    setState(() {
-                      dropDownValue = result;
-                    });
-
-                    // optional: handle selection immediately
-                    if (result == 'View Details') {
-                      NavigationService.navigateTo(Routes.subjectdetailsScreen);
-                    } else if (result == 'Edit Subject') {}
-                  }
-                },
-
-                child: Image.asset(Assets.icons.menu.path),
+                child: Text(
+                  "See note,",
+                  style: TextFontStyle.txtfntstyleFitree14w400c2E3227.copyWith(
+                    decoration: TextDecoration.underline,
+                  ),
+                ),
               ),
             ],
           ),
@@ -177,7 +143,7 @@ class _CustomSubjectAssignedTcherState
               Padding(
                 padding: EdgeInsets.only(right: 36.w),
                 child: Text(
-                  "Science",
+                  "16 Oct 2025",
                   style: TextFontStyle.txtfntstyleFitree14w400c2E3227.copyWith(
                     fontWeight: FontWeight.w500,
                   ),
@@ -186,43 +152,20 @@ class _CustomSubjectAssignedTcherState
               Padding(
                 padding: EdgeInsetsGeometry.only(right: 30.w),
                 child: Text(
-                  "Ms. Sara Levy",
+                  "110/120",
                   style: TextFontStyle.txtfntstyleFitree14w400c2E3227.copyWith(
                     fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
-              GestureDetector(child: Image.asset(Assets.icons.menu.path)),
-            ],
-          ),
-          UIHelper.verticalspace16,
-
-          UIHelper.customDivider(),
-          UIHelper.verticalspace16,
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SizedBox(height: 16, width: 16, child: Placeholder()),
-              Padding(
-                padding: EdgeInsets.only(right: 36.w),
+              GestureDetector(
                 child: Text(
-                  "English",
+                  "See note,",
                   style: TextFontStyle.txtfntstyleFitree14w400c2E3227.copyWith(
-                    fontWeight: FontWeight.w500,
+                    decoration: TextDecoration.underline,
                   ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsetsGeometry.only(right: 30.w),
-                child: Text(
-                  "Mr. David Cohen",
-                  style: TextFontStyle.txtfntstyleFitree14w400c2E3227.copyWith(
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-              GestureDetector(child: Image.asset(Assets.icons.menu.path)),
             ],
           ),
         ],

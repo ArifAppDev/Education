@@ -11,6 +11,9 @@
 class FontFamily {
   FontFamily._();
 
-  /// Font family: Figtree
-  static const String figtree = 'Figtree';
+  /// Font family: figtree
+  static const String figtree = 'figtree';
+
+  /// Font family: manrope_semiBold
+  static const String manropeSemiBold = 'manrope_semiBold';
 }

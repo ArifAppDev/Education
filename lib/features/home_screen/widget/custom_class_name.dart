@@ -96,7 +96,11 @@ class CustomClassnameCard extends StatelessWidget {
           ),
           UIHelper.verticalspace24,
 
-          CustomButton(title: 'View Students', onTap: () {}),
+          CustomButton(
+            title: 'View Students',
+            onTap: () {},
+            containerColor: AppColor.primaryColor,
+          ),
         ],
       ),
     );
