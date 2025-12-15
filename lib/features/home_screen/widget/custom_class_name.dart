@@ -1,7 +1,7 @@
 import 'package:education/assets_helper/app_colors.dart';
 import 'package:education/assets_helper/assets_fonts.dart';
 import 'package:education/common_widgets/custom_button.dart';
-import 'package:education/constants/app_constants.dart';
+import 'package:education/constants/subject_assign_list.dart';
 import 'package:education/features/home_screen/widget/custom_viewclass_button.dart';
 import 'package:education/features/home_screen/widget/point_card_button.dart';
 import 'package:education/gen/colors.gen.dart';

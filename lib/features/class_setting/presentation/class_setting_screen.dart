@@ -4,7 +4,7 @@ import 'package:education/assets_helper/assets_fonts.dart';
 import 'package:education/common_widgets/custom_top_button_filled.dart';
 import 'package:education/common_widgets/custom_top_button_unfilled.dart';
 
-import 'package:education/constants/app_constants.dart';
+import 'package:education/constants/subject_assign_list.dart';
 
 import 'package:education/features/class_setting/widget/custom_app_bar_backButton.dart';
 import 'package:education/features/class_setting/widget/custom_class_secretcode_card.dart';
@@ -39,7 +39,12 @@ class ClassSettingScreen extends StatelessWidget {
                 //===================== custom app bar ==================
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
-                  child: CustomAppBarBackbutton(appbarName: 'Class Settings'),
+                  child: CustomAppBarBackbutton(
+                    appbarName: 'Class Settings',
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                  ),
                 ),
                 UIHelper.verticalspace16,
 

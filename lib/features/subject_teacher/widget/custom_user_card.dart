@@ -1,4 +1,5 @@
 import 'package:education/assets_helper/app_colors.dart';
+import 'package:education/assets_helper/app_image.dart';
 import 'package:education/assets_helper/assets_fonts.dart';
 
 import 'package:education/gen/colors.gen.dart';
@@ -6,15 +7,22 @@ import 'package:education/helpers/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomUserCard extends StatelessWidget {
-  final String username;
+class CustomTeacherCard extends StatelessWidget {
+  final String teacherName;
   final String usergmail;
-  final String userJoinedDate;
-  const CustomUserCard({
+  final String joinedDate;
+  final String teacherImg;
+  final String sub1;
+  final String sub2;
+
+  const CustomTeacherCard({
     super.key,
-    required this.username,
+    required this.teacherName,
     required this.usergmail,
-    required this.userJoinedDate,
+    required this.joinedDate,
+    required this.teacherImg,
+    required this.sub1,
+    required this.sub2,
   });
 
   @override
@@ -32,14 +40,14 @@ class CustomUserCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
 
         children: [
-          SizedBox(height: 40, width: 40, child: Placeholder()),
+          CircleAvatar(backgroundImage: NetworkImage(teacherImg)),
           UIHelper.horizontalSpace(8.w),
 
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                username,
+                teacherName,
                 style: TextFontStyle.txtfontstyleFigtree16w600c2E3227.copyWith(
                   fontWeight: FontWeight.w500,
                   color: AppColor.c000000,
@@ -52,7 +60,7 @@ class CustomUserCard extends StatelessWidget {
               ),
               UIHelper.verticalSpace(4.h),
               Text(
-                userJoinedDate,
+                joinedDate,
                 style: TextFontStyle.txtfntstyleFitree14w400c2E3227,
               ),
               UIHelper.verticalSpace(4.h),
@@ -68,7 +76,7 @@ class CustomUserCard extends StatelessWidget {
                       vertical: 4.h,
                     ),
                     child: Text(
-                      "Mathematics",
+                      sub1,
                       style: TextFontStyle.txtfntstyleFitree12w400c59c53,
                     ),
                   ),
@@ -83,7 +91,7 @@ class CustomUserCard extends StatelessWidget {
                       vertical: 4.h,
                     ),
                     child: Text(
-                      "Science",
+                      sub2,
                       style: TextFontStyle.txtfntstyleFitree12w400c59c53,
                     ),
                   ),
@@ -93,11 +101,7 @@ class CustomUserCard extends StatelessWidget {
           ),
           UIHelper.horizontalSpace(28.w),
 
-          Row(
-            children: [
-              SizedBox(height: 18.h, width: 18.w, child: Placeholder()),
-            ],
-          ),
+          Row(children: [Image.asset(AppImage.menu)]),
         ],
       ),
     );

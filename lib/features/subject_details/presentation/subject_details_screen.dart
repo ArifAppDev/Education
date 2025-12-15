@@ -1,9 +1,10 @@
 import 'package:education/assets_helper/app_colors.dart';
 import 'package:education/assets_helper/assets_fonts.dart';
 import 'package:education/common_widgets/custom_button.dart';
+import 'package:education/constants/lesson_overvew_list.dart';
+
 import 'package:education/features/class_setting/widget/custom_app_bar_backButton.dart';
 import 'package:education/features/subject_details/widget/custom_card.dart';
-import 'package:education/features/subject_details/widget/custom_lesson_overview_card.dart';
 
 import 'package:education/gen/colors.gen.dart';
 
@@ -27,7 +28,12 @@ class SubjectDetailsScreen extends StatelessWidget {
               //===================== custom App bar ====================
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 17.h),
-                child: CustomAppBarBackbutton(appbarName: 'Subject Details'),
+                child: CustomAppBarBackbutton(
+                  appbarName: 'Subject Details',
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
               ),
 
               UIHelper.customDivider(),
@@ -46,7 +52,107 @@ class SubjectDetailsScreen extends StatelessWidget {
                       subjectStatus: 'In Progress',
                     ),
                     UIHelper.verticalSpace(20.h),
-                    CustomLessonOverviewCard(),
+
+                    //===============  subjec assigned teacher ================
+                    Container(
+                      padding: EdgeInsets.all(16.w),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8.r),
+                        color: ColorName.cFFFFFF,
+                        border: Border.all(
+                          color: AppColor.c2E3227,
+                          width: 0.4.w,
+                        ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          /// Title
+                          Text(
+                            "Lesson Overview",
+                            style:
+                                TextFontStyle.txtfontstyleFigtree16w600c2E3227,
+                          ),
+                          Text(
+                            "Track lesson performance, points, and class progress in one place.",
+                            style: TextFontStyle.txtfntstyleFitree14w400c2E3227,
+                          ),
+
+                          SizedBox(height: 27.h),
+
+                          /// Table Header
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Lesson Date',
+                                style: TextFontStyle
+                                    .txtfntstyleFitree14w400c2E3227
+                                    .copyWith(fontWeight: FontWeight.w500),
+                              ),
+                              Text(
+                                'Total Points',
+                                style: TextFontStyle
+                                    .txtfntstyleFitree14w400c2E3227
+                                    .copyWith(fontWeight: FontWeight.w500),
+                              ),
+                              Text(
+                                'Notes',
+
+                                style: TextFontStyle
+                                    .txtfntstyleFitree14w400c2E3227
+                                    .copyWith(fontWeight: FontWeight.w500),
+                              ),
+                            ],
+                          ),
+
+                          UIHelper.verticalspace16,
+                          UIHelper.customDivider(),
+                          UIHelper.verticalSpace(11.h),
+
+                          /// ============= List view builder ===============
+                          ListView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: lessonoverview.length,
+                            itemBuilder: (context, index) {
+                              return Padding(
+                                padding: EdgeInsets.symmetric(
+                                  vertical: 5.h,
+                                  horizontal: 4.h,
+                                ),
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          lessonoverview[index]['date'],
+                                          style: TextFontStyle
+                                              .txtfntstyleFitree14w400c2E3227,
+                                        ),
+
+                                        Text(
+                                          lessonoverview[index]['point'],
+                                          style: TextFontStyle
+                                              .txtfntstyleFitree14w400c2E3227,
+                                        ),
+                                      ],
+                                    ),
+                                    UIHelper.verticalSpace(11.h),
+
+                                    UIHelper.customDivider(),
+                                    UIHelper.verticalSpace(11.h),
+                                  ],
+                                ),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+
                     UIHelper.verticalSpace(20.h),
 
                     Container(

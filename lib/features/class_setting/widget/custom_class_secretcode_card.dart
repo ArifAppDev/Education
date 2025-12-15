@@ -1,7 +1,7 @@
 import 'package:education/assets_helper/app_colors.dart';
 import 'package:education/assets_helper/assets_fonts.dart';
 import 'package:education/common_widgets/custom_button_filled.dart';
-import 'package:education/constants/app_constants.dart';
+import 'package:education/constants/subject_assign_list.dart';
 import 'package:education/features/class_setting/widget/custom_classcode_textformfield.dart';
 import 'package:education/gen/colors.gen.dart';
 import 'package:education/helpers/ui_helpers.dart';

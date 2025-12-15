@@ -5,16 +5,20 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomAppBarBackbutton extends StatelessWidget {
   final String appbarName;
-  const CustomAppBarBackbutton({super.key, required this.appbarName});
+  final VoidCallback onTap;
+  const CustomAppBarBackbutton({
+    super.key,
+    required this.appbarName,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 30,
       width: MediaQuery.of(context).size.width,
       child: Row(
         children: [
-          SizedBox(height: 20.0.h, width: 20.0.w, child: Placeholder()),
+          GestureDetector(onTap: onTap, child: Icon(Icons.arrow_back_outlined)),
           SizedBox(width: 5.0.w),
           Text(
             appbarName,
