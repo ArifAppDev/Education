@@ -4,7 +4,10 @@ import 'dart:io';
 
 import 'package:education/features/class_setting/presentation/class_setting_screen.dart';
 import 'package:education/features/class_setting_invite/presentation/class_setting_invite_screen.dart';
+import 'package:education/features/general_setting/presentation/general_setting_screen.dart';
 import 'package:education/features/home_screen/presentation/home_screen.dart';
+import 'package:education/features/join_request/presentation/join_request_teacherscreen.dart';
+import 'package:education/features/sent_invitation/presentation/sent_invitation_screen.dart';
 import 'package:education/features/subject_details/presentation/subject_details_screen.dart';
 import 'package:education/features/subject_teacher/presentation/subject_teacher.dart';
 import 'package:flutter/cupertino.dart';
@@ -14,11 +17,14 @@ final class Routes {
   Routes._internal();
   static Routes get instance => _routes;
 
-  static const String homescreen = '/homescreen';
+  static const String homeScreen = '/homeScreen';
   static const String classSettingScreen = '/classSettingScreen';
-  static const String subjectandteacher = '/subjectandteacher';
-  static const String subjectdetailsScreen = '/subjectdetailsScreen';
-  static const String classettinginvitescreen = '/classettinginvitescreen';
+  static const String subjectAndTeacherScreen = '/subjectAndTeacherScreen';
+  static const String subjectDetailsScreen = '/subjectDetailsScreen';
+  static const String classSettingInviteScreen = '/classSettingInviteScreen';
+  static const String sentInvitationScreen = '/sentInvitationScreen';
+  static const String joinRequestTeacherScreen = '/joinRequestTeacherScreen';
+  static const String generalsettingscreen = '/generalsettingscreen';
 }
 
 final class RouteGenerator {
@@ -28,7 +34,7 @@ final class RouteGenerator {
 
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case Routes.homescreen:
+      case Routes.homeScreen:
         return Platform.isAndroid
             ? _FadedTransitionRoute(widget: HomeScreen(), settings: settings)
             : CupertinoPageRoute(builder: (context) => HomeScreen());
@@ -41,7 +47,7 @@ final class RouteGenerator {
               )
             : CupertinoPageRoute(builder: (context) => ClassSettingScreen());
 
-      case Routes.subjectandteacher:
+      case Routes.subjectAndTeacherScreen:
         return Platform.isAndroid
             ? _FadedTransitionRoute(
                 widget: SubjectTeacher(),
@@ -49,7 +55,7 @@ final class RouteGenerator {
               )
             : CupertinoPageRoute(builder: (context) => SubjectTeacher());
 
-      case Routes.subjectdetailsScreen:
+      case Routes.subjectDetailsScreen:
         return Platform.isAndroid
             ? _FadedTransitionRoute(
                 widget: SubjectDetailsScreen(),
@@ -57,7 +63,7 @@ final class RouteGenerator {
               )
             : CupertinoPageRoute(builder: (context) => SubjectDetailsScreen());
 
-      case Routes.classettinginvitescreen:
+      case Routes.classSettingInviteScreen:
         return Platform.isAndroid
             ? _FadedTransitionRoute(
                 widget: ClassSettingInviteScreen(),
@@ -66,6 +72,32 @@ final class RouteGenerator {
             : CupertinoPageRoute(
                 builder: (context) => ClassSettingInviteScreen(),
               );
+
+      case Routes.sentInvitationScreen:
+        return Platform.isAndroid
+            ? _FadedTransitionRoute(
+                widget: SentInvitationScreen(),
+                settings: settings,
+              )
+            : CupertinoPageRoute(builder: (context) => SentInvitationScreen());
+
+      case Routes.joinRequestTeacherScreen:
+        return Platform.isAndroid
+            ? _FadedTransitionRoute(
+                widget: JoinRequestTeacherscreen(),
+                settings: settings,
+              )
+            : CupertinoPageRoute(
+                builder: (context) => JoinRequestTeacherscreen(),
+              );
+
+      case Routes.generalsettingscreen:
+        return Platform.isAndroid
+            ? _FadedTransitionRoute(
+                widget: GeneralSettingScreen(),
+                settings: settings,
+              )
+            : CupertinoPageRoute(builder: (context) => GeneralSettingScreen());
 
       // case Routes.screenView:
       //   Map<String, dynamic> data = settings.arguments as Map<String, dynamic>;

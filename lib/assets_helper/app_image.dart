@@ -3,4 +3,5 @@ class AppImage {
 
   // * Login Screen Images
   static const String menu = '$basePath/menu.png';
+  static const String cross = '$basePath/cross.png';
 }

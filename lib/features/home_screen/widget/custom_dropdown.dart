@@ -28,7 +28,9 @@ class _CustomDropdownState extends State<CustomDropdown> {
 
           value: dropDownValue,
           icon: Row(
-            children: [Icon(Icons.arrow_drop_down, color: Colors.blueGrey)],
+            children: [
+              Icon(Icons.keyboard_arrow_down_rounded, color: Colors.blueGrey),
+            ],
           ),
           style: TextStyle(color: AppColor.c595C53),
 

@@ -64,8 +64,9 @@ class SubjectTeacher extends StatelessWidget {
                           child: CustomTopButtonUnFilled(
                             onTap: () {
                               NavigationService.navigateTo(
-                                Routes.classettinginvitescreen,
+                                Routes.classSettingInviteScreen,
                               );
+                              print("Navigate to classettinginvitescreen");
                             },
                             title: 'Invites & Requests',
                           ),
@@ -170,7 +171,7 @@ class SubjectTeacher extends StatelessWidget {
                                           onSelected: (value) {
                                             if (value == 'view') {
                                               NavigationService.navigateTo(
-                                                Routes.subjectdetailsScreen,
+                                                Routes.subjectDetailsScreen,
                                               );
                                             } else if (value == 'edit') {
                                               debugPrint(

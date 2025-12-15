@@ -68,7 +68,7 @@ class ClassSettingScreen extends StatelessWidget {
                           CustomTopButtonUnFilled(
                             onTap: () {
                               NavigationService.navigateTo(
-                                Routes.subjectandteacher,
+                                Routes.subjectAndTeacherScreen,
                               );
                             },
                             title: 'Invites & Requests',
