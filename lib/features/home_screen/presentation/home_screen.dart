@@ -1,9 +1,11 @@
+import 'dart:io';
+
 import 'package:education/assets_helper/app_colors.dart';
 import 'package:education/assets_helper/assets_fonts.dart';
 
 import 'package:education/common_widgets/custom_button2.dart';
 import 'package:education/constants/subject_assign_list.dart';
-import 'package:education/features/home_screen/widget/custom_app_bar.dart';
+
 import 'package:education/features/home_screen/widget/custom_class_name.dart';
 import 'package:education/features/home_screen/widget/custom_drawer.dart';
 import 'package:education/features/home_screen/widget/custom_dropdown.dart';
@@ -14,6 +16,7 @@ import 'package:education/helpers/ui_helpers.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:image_picker/image_picker.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -23,6 +26,27 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  XFile? _image;
+  Future<void> _pickImageFromCamera() async {
+    final pickedImage = await ImagePicker().pickImage(
+      source: ImageSource.camera,
+    );
+    if (pickedImage == null) return;
+    setState(() {
+      _image = XFile(pickedImage.path);
+    });
+  }
+
+  Future<void> _pickImageFromGallary() async {
+    final pickImage = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
+    );
+    if (pickImage == null) return;
+    setState(() {
+      _image = XFile(pickImage.path);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,12 +58,63 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             //===================== custom App bar ====================
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.h),
-              child: CustomAppBar(
-                name: 'Derech Erets',
-                instituteName: 'Technion Israel Institute of Tec...',
+              padding: EdgeInsets.symmetric(horizontal: 20.0.w),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      GestureDetector(
+                        onTap: _pickImageFromGallary,
+                        child: CircleAvatar(
+                          backgroundImage: _image != null
+                              ? FileImage(File(_image!.path)) as ImageProvider
+                              : NetworkImage(
+                                  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                                ),
+                        ),
+                      ),
+                      SizedBox(width: 8),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Derech Erets",
+                            style: TextFontStyle
+                                .txtfontstyleFigtree16w600c2E3227
+                                .copyWith(fontSize: 16),
+                          ),
+                          Text(
+                            "Technion Israel Institute of Tec...",
+                            style: TextFontStyle.txtfntstyleFitree12w400c59c53
+                                .copyWith(fontSize: 12),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+
+                  Row(
+                    children: [
+                      SizedBox(height: 24, width: 24, child: Placeholder()),
+                      SizedBox(width: 8),
+
+                      GestureDetector(
+                        onTap: () {
+                          Scaffold.of(context).openDrawer();
+                        },
+                        child: SizedBox(
+                          height: 24,
+                          width: 24,
+                          child: Placeholder(),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
+            UIHelper.verticalspace16,
 
             UIHelper.customDivider(),
 
