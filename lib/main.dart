@@ -1,4 +1,4 @@
-import 'package:education/features/home_screen/presentation/home_screen.dart';
+import 'package:education/features/home/presentation/home_screen.dart';
 import 'package:education/helpers/all_routes.dart';
 import 'package:education/helpers/navigation_service.dart';
 import 'package:education/main.dart' as tzdata;

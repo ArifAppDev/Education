@@ -5,7 +5,7 @@ import 'dart:io';
 import 'package:education/features/class_setting/presentation/class_setting_screen.dart';
 import 'package:education/features/class_setting_invite/presentation/class_setting_invite_screen.dart';
 import 'package:education/features/general_setting/presentation/general_setting_screen.dart';
-import 'package:education/features/home_screen/presentation/home_screen.dart';
+import 'package:education/features/home/presentation/home_screen.dart';
 import 'package:education/features/join_request/presentation/join_request_teacherscreen.dart';
 import 'package:education/features/sent_invitation/presentation/sent_invitation_screen.dart';
 import 'package:education/features/subject_details/presentation/subject_details_screen.dart';
