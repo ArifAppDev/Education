@@ -3,7 +3,6 @@ import 'package:education/features/sent_invitation/widget/custom_sent_invitation
 import 'package:education/gen/colors.gen.dart';
 import 'package:education/helpers/all_routes.dart';
 import 'package:education/helpers/navigation_service.dart';
-
 import 'package:education/helpers/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,12 +24,12 @@ class SentInvitationScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: CustomAppBarBackbutton(
                   appbarName: 'Sent Invitations',
-                  onTap: () => Navigator.pop(context),
+                  onTap: () {
+                    NavigationService.goBack;
+                  },
                 ),
               ),
-
               UIHelper.verticalSpace(20.h),
-
               // ===================== First Card =====================
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.w),

@@ -2,19 +2,37 @@ import 'package:education/assets_helper/app_colors.dart';
 import 'package:education/assets_helper/assets_fonts.dart';
 import 'package:education/common_widgets/custom_button.dart';
 import 'package:education/common_widgets/custom_top_button_unfilled.dart';
+
 import 'package:education/features/class_setting/widget/custom_app_bar_backButton.dart';
-import 'package:education/features/class_setting/widget/custom_button_filled.dart';
+
 import 'package:education/features/general_setting/widget/custom_gnral_configurationcard.dart';
 import 'package:education/gen/colors.gen.dart';
+import 'package:education/helpers/all_routes.dart';
+import 'package:education/helpers/navigation_service.dart';
 import 'package:education/helpers/ui_helpers.dart';
+import 'package:education/provider/top_button_selection_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 class GeneralSettingScreen extends StatelessWidget {
   const GeneralSettingScreen({super.key});
 
+  static const List<String> _routes = [
+    Routes.subjectAndTeacherScreen,
+    Routes.classSettingInviteScreen,
+    Routes.generalsettingscreen,
+  ];
+  void _onTopButtonTap(BuildContext context, int index) {
+    context.read<TopButtonSelectionProvider>().select(index);
+    NavigationService.navigateTo(_routes[index]).then((_) {});
+  }
+
   @override
   Widget build(BuildContext context) {
+    final selectedIndex = context
+        .watch<TopButtonSelectionProvider>()
+        .selectedIndex;
     return Scaffold(
       //============== backround color ================
       backgroundColor: ColorName.cFFFFFF,
@@ -28,9 +46,7 @@ class GeneralSettingScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: CustomAppBarBackbutton(
                   appbarName: 'Class Settings',
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
+                  onTap: () => NavigationService.goBack,
                 ),
               ),
               UIHelper.verticalspace16,
@@ -40,24 +56,31 @@ class GeneralSettingScreen extends StatelessWidget {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  spacing: 12,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    CustomTopButtonUnFilled(
-                      onTap: () {},
+                    UIHelper.horizontalspace12,
+                    SubTeacherTopButton(
+                      onTap: () => _onTopButtonTap(context, 0),
                       title: 'Subjects & Teachers',
+                      isSelected: selectedIndex == 0,
                     ),
-                    CustomTopButtonUnFilled(
-                      onTap: () {},
+                    UIHelper.horizontalspace12,
+                    SubTeacherTopButton(
+                      onTap: () => _onTopButtonTap(context, 1),
                       title: 'Invites & Requests',
+                      isSelected: selectedIndex == 1,
                     ),
-                    CustomButtonFilled(
-                      fillColor: AppColor.cF0F0F0,
+                    UIHelper.horizontalspace12,
+                    SubTeacherTopButton(
+                      onTap: () => _onTopButtonTap(context, 2),
                       title: 'General Settings',
-                      onTap: () {},
+                      isSelected: selectedIndex == 2,
                     ),
+                    UIHelper.horizontalspace12,
                   ],
                 ),
               ),
+
               UIHelper.verticalspace20,
 
               Padding(

@@ -2,7 +2,6 @@ import 'package:education/assets_helper/app_colors.dart';
 import 'package:education/assets_helper/assets_fonts.dart';
 
 import 'package:education/common_widgets/custom_top_button_filled.dart';
-import 'package:education/common_widgets/custom_top_button_unfilled.dart';
 
 import 'package:education/constants/subject_assign_list.dart';
 
@@ -13,6 +12,7 @@ import 'package:education/features/class_setting/widget/custom_class_summary_car
 import 'package:education/gen/colors.gen.dart';
 import 'package:education/helpers/all_routes.dart';
 import 'package:education/helpers/navigation_service.dart';
+
 import 'package:education/helpers/ui_helpers.dart';
 import 'package:education/provider/check_secure_provider.dart';
 
@@ -41,9 +41,7 @@ class ClassSettingScreen extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: CustomAppBarBackbutton(
                     appbarName: 'Class Settings',
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
+                    onTap: () => NavigationService.goBack,
                   ),
                 ),
                 UIHelper.verticalspace16,
@@ -64,14 +62,14 @@ class ClassSettingScreen extends StatelessWidget {
                             onTap: () {},
                           ),
                           UIHelper.horizontalspace12,
-
-                          CustomTopButtonUnFilled(
+                          CustomTopButtonFilled(
+                            fillColor: AppColor.cF0F0F0,
+                            title: 'Subjects & Teachers',
                             onTap: () {
                               NavigationService.navigateTo(
                                 Routes.subjectAndTeacherScreen,
                               );
                             },
-                            title: 'Invites & Requests',
                           ),
                         ],
                       ),

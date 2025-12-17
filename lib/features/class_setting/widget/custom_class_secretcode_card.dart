@@ -1,6 +1,6 @@
 import 'package:education/assets_helper/app_colors.dart';
 import 'package:education/assets_helper/assets_fonts.dart';
-import 'package:education/common_widgets/custom_button_filled.dart';
+
 import 'package:education/constants/subject_assign_list.dart';
 import 'package:education/features/class_setting/widget/custom_classcode_textformfield.dart';
 import 'package:education/gen/colors.gen.dart';
@@ -41,20 +41,9 @@ class CustomClassSecretcodeCard extends StatelessWidget {
               //================= custom text form field ===========
               Expanded(child: CustomClasscodeTextformfield()),
               SizedBox(width: 12.w),
-              CustomButtonFilled(
-                fillColor: AppColor.cF0F0F0,
-                title: 'Class Overview',
-                onTap: () {},
-              ),
             ],
           ),
           UIHelper.verticalspace16,
-
-          CustomButtonFilled(
-            fillColor: AppColor.cF0F0F0,
-            title: 'Generate New Code',
-            onTap: () {},
-          ),
         ],
       ),
     );

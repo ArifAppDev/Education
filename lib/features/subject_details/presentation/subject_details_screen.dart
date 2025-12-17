@@ -7,6 +7,7 @@ import 'package:education/features/class_setting/widget/custom_app_bar_backButto
 import 'package:education/features/subject_details/widget/custom_card.dart';
 
 import 'package:education/gen/colors.gen.dart';
+import 'package:education/helpers/navigation_service.dart';
 
 import 'package:education/helpers/ui_helpers.dart';
 
@@ -30,9 +31,7 @@ class SubjectDetailsScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 17.h),
                 child: CustomAppBarBackbutton(
                   appbarName: 'Subject Details',
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
+                  onTap: NavigationService.goBack,
                 ),
               ),
 
@@ -53,7 +52,7 @@ class SubjectDetailsScreen extends StatelessWidget {
                     ),
                     UIHelper.verticalSpace(20.h),
 
-                    //===============  subjec assigned teacher ================
+                    //===============  Lesson overview ================
                     Container(
                       padding: EdgeInsets.all(16.w),
                       decoration: BoxDecoration(

@@ -2,10 +2,12 @@ import 'package:education/features/home_screen/presentation/home_screen.dart';
 import 'package:education/helpers/all_routes.dart';
 import 'package:education/helpers/navigation_service.dart';
 import 'package:education/main.dart' as tzdata;
+import 'package:education/provider/top_button_selection_provider.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,7 +18,12 @@ void main() async {
 
   // DioSingleton.instance.create();
   //await NotificationService.initialize();
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => TopButtonSelectionProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
