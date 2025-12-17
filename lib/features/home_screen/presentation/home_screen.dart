@@ -96,7 +96,22 @@ class _HomeScreenState extends State<HomeScreen> {
 
                   Row(
                     children: [
-                      SizedBox(height: 24, width: 24, child: Placeholder()),
+                      GestureDetector(
+                        onTap: _pickImageFromCamera,
+                        child: Container(
+                          padding: EdgeInsets.all(10.w),
+                          decoration: BoxDecoration(
+                            color: AppColor.primaryColor,
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          child: Text(
+                            "Camera",
+                            style: TextFontStyle.txtfntstyleFitree12w400c59c53
+                                .copyWith(color: AppColor.cFFFFFFF),
+                          ),
+                        ),
+                      ),
+
                       SizedBox(width: 8),
 
                       GestureDetector(
